@@ -70,5 +70,7 @@ https://sports.news.naver.com/esports/index.nhn 의 HTML 코드를 볼 수 있�
 
 `pandas.read_html()` 메쏘드는 HTML 코드를 입력받아 해당 코드의 `<table>` 구조체를 모두 dataframe 형태로 바꾸어 list 타입으로 반환한다.
 
+만약 필요로 하는 데이터가 `<table>` 태그에 포함되어 있다면 간편하게 데이터를 수집할 수 있다.
+
 ## 2. Static Webpage Scrapping-HTML parsing
 
