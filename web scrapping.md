@@ -53,3 +53,9 @@ dfs = pd.read_html(url)
 dfs[0]
 ```
 
+- [실행 결과]
+> ![img03](https://github.com/jaehwan-dev/study-in-mis/blob/master/imgs/img03-pd.read_html.JPG)
+
+단 세 줄의 짧은 코드로 생각보다 쉽게 데이터가 불러와졌다.
+
+이제 어떤 과정을 통해 이런 결과를 얻을 수 있었는지 파해쳐보자.
