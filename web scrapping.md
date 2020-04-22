@@ -117,7 +117,7 @@ print (column[0].get_text().strip())
 이런 동적 웹 페이지의 스크래핑은 [[link]](https://nittaku.tistory.com/139)를 참고하자.
 
 [참고] 개발자 도구의 network 탭
-> !(img06)[https://github.com/jaehwan-dev/study-in-mis/blob/master/imgs/img06-network%20log.JPG)
+> ![img06](https://github.com/jaehwan-dev/study-in-mis/blob/master/imgs/img06-network%20log.JPG)
 
 웹 페이지가 로드된 후 일어나는 network connection과 관련된 정보는 개발자 도구의 network 탭에서 확인할 수 있다.
 
