@@ -65,4 +65,4 @@
 1. 데이터 크롤링-트위터(API 개념) [[link]](https://github.com/jaehwan-dev/study-in-mis/blob/master/Twitter-API.md)
 2. 데이터 크롤링-트위터(HTML Parsing) [[link]](https://github.com/jaehwan-dev/study-in-mis/blob/master/Twitter-got.md)
 3. 데이터 크롤링-웹 스크래핑(HTML Parsing) [[link]](https://github.com/jaehwan-dev/study-in-mis/blob/master/web%20scrapping.md)
-4. 데이터 전처리-Pandas(Vector 개념으로 접근하기) [[link]]()
+4. 데이터 전처리-Pandas(Vector 개념으로 접근하기) [[link]](https://github.com/jaehwan-dev/study-in-mis/blob/master/pandas.md)
