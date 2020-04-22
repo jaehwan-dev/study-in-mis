@@ -16,9 +16,9 @@
 볼링 동호회 회원의 이름과 최고 점수를 기록한다고 생각해보자.
 
 - [기록원 1 - 나나]
-> '김보성'회원의 최고 점수는 120점이다.
-> '정명석'회원의 최고 점수는 150점이다.
-> '정상현'회원의 최고 점수는 180점이다.
+> - '김보성'회원의 최고 점수는 120점이다.
+> - '정명석'회원의 최고 점수는 150점이다.
+> - '정상현'회원의 최고 점수는 180점이다.
 
 다른 기록원 레이나는 다음과 같이 기록했다.
 
@@ -37,7 +37,7 @@
 
 예전에는 HTML과 CSS, 파라미터만 분석하면 됐다면 요즘은 페이지 내에서 발생하는 network connection까지 분석해야하는 경우가 많다.
 
-## 1. Static Webpage Scrapping
+## 1. Static Webpage Scrapping-pandas.read_html()
 
 가장 쉬운 형태의 웹 페이지 스크래핑을 해보자.
 
@@ -59,3 +59,16 @@ dfs[0]
 단 세 줄의 짧은 코드로 생각보다 쉽게 데이터가 불러와졌다.
 
 이제 어떤 과정을 통해 이런 결과를 얻을 수 있었는지 파해쳐보자.
+
+브라우저의 메뉴에 개발자 도구를 활용하면 다양한 정보를 얻을 수 있다.
+
+> ![img04](https://github.com/jaehwan-dev/study-in-mis/blob/master/imgs/img04-developer%20tool.JPG)
+
+https://sports.news.naver.com/esports/index.nhn 의 HTML 코드를 볼 수 있는데, 이 코드들 중에 `<table>` 태그에 집중하자.
+
+> ![img05](https://github.com/jaehwan-dev/study-in-mis/blob/master/imgs/img05-HTML%20tag.JPG)
+
+`pandas.read_html()` 메쏘드는 HTML 코드를 입력받아 해당 코드의 `<table>` 구조체를 모두 dataframe 형태로 바꾸어 list 타입으로 반환한다.
+
+## 2. Static Webpage Scrapping-HTML parsing
+
