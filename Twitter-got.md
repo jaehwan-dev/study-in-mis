@@ -8,7 +8,7 @@ Twitter에서는 공식적으로 API를 이용해 데이터 수집 환경을 제
 
 ~~우리는 가난한 학생이므로 3rd party에서 개발된 라이브러리를 사용한다.~~
 
-본 문서에서 소개될 3rd party 라이브러리는 GetOldTweets3이다.
+본 문서에서 소개될 3rd party 라이브러리는 GetOldTweets3이다. [[doc]](https://pypi.org/project/GetOldTweets3/)
 
 해당 라이브러리는 가상의 브라우저를 연 후 페이지 스크롤을 통해 계속 트위터를 읽어오는 방식을 사용한다.
 
@@ -122,3 +122,5 @@ else:
 수집된 트윗은 클라우드 서버에 바로 저장되며, 저장된 트윗은 왼쪽 메뉴의 파일 아이콘을 클릭해 다운로드할 수 있다.
 
 > ![img01](https://github.com/jaehwan-dev/study-in-mis/raw/master/imgs/img01-download%20outputfile.png)
+
+## 코드 
