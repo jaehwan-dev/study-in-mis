@@ -47,7 +47,7 @@ https://sports.news.naver.com/esports/index.nhn 에 접속하면 Riot Games의 L
 
 이 페이지에서 각 팀의 전적 기록을 pandas dataframe으로 가져오는 코드를 작성해보자.
 
-```
+```python
 import pandas as pd
 
 url = 'https://sports.news.naver.com/esports/index.nhn'
@@ -80,16 +80,16 @@ https://sports.news.naver.com/esports/index.nhn 의 HTML 코드를 볼 수 있�
 
 개발자 도구를 이용해 해당 페이지의 HTML 태그를 살펴보면 아래와 같은 트리 구조를 확인할 수 있다.
 
-> <table>   
-> |-<caption>   
-> |-<tbody>   
-> |--<tr> .best   
-> |---<th> .row   
-> |---<td>   
-> |----<div> .image emblem   
-> |----<div> .info   
-> |-----<span> .name   
-> |---<td>   
+> table   
+> |-caption   
+> |-tbody   
+> |--tr .best   
+> |---th .row   
+> |---td   
+> |----div .image emblem   
+> |----div .info   
+> |-----span .name   
+> |---td   
 
 파이썬 라이브러리인 `BeautifulSoup`을 이용하면 HTML 구조를 편리하게 parsing 할 수 있다. [[doc]](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
