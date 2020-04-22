@@ -70,3 +70,55 @@ def convertTweetToDictGOT(tweet):
             "text":tweet.text}
   return _tweet
 ```
+
+다음의 값들을 필요에 따라 수정해서 사용한다.
+
+**Twitter API와 달리 속도가 느리고 검색수 제한이 빡빡하므로 until, since를 모두 입력해 사용한다**
+
+- keyword: 검색어
+- until: 특정일(UTC 기준) 미만의 트윗만 검색할 수 있다. 지정하고 싶은 경우 날짜를 YYYY-MM-DD 양식으로 작성하여 따옴표로 묶어 입력한다. e.g. "2020-04-16" 단, 7일 보다 오래된 트윗은 검색할 수 없다.
+- since: 특정일(UTC 기준) 이후의 트윗만 검색할 수 있다.
+- ouput_filename: 수집한 트윗을 저장할 파일 이름, 지정하지 않은 경우 *키워드_after_마지막트윗ID.csv*로 저장된다.
+
+```python
+keyword = "주식"
+until = None # YYYY-MM-DD일 이전의 트윗만 검색
+since = None # YYYY-MM-DD일 이후의 트윗만 검색
+output_filename = None # 트윗을 저장할 파일 이름
+```
+
+## 3. 트윗 수집
+
+위의 값을 수정한 후 아래 코드를 실행하면 트윗이 수집된다.
+
+GetOldTweets3도 아마 무료 티어의 API를 사용하고 있을 것이므로 한번에 수집할 트윗의 양을 보다 작은 숫자로 설정하는 것이 좋다. (e.g. 10,000)
+
+```python
+max_tweets = 10000 # 10,000개 수집하는데 7분 정도 걸림
+
+print ("[{}] ...트윗 수집 시작...".format(datetime.now().strftime("%H:%M:%S")))
+tweetCriteria = got.manager.TweetCriteria()
+tweetCriteria.setQuerySearch(keyword)
+tweetCriteria.setMaxTweets(max_tweets)
+tweetCriteria.setTopTweets(False)
+if since:
+  tweetCriteria.setSince(since)
+if until:
+  tweetCriteria.setUntil(until)
+
+tweets = got.manager.TweetManager.getTweets(tweetCriteria)
+
+print ("[{}] ...트윗 수집 종료...".format(datetime.now().strftime("%H:%M:%S")))
+print ("총 {:,}개의 트윗이 수집되었습니다.".format(len(tweets)))
+
+tweets = [tweet for tweet in tweets if tweet is not None]
+df = pd.DataFrame(list(map(convertTweetToDictGOT, tweets)))
+if output_filename:
+  df.to_csv(output_filename, index=False)
+else:
+  df.to_csv("{}_since_{}_until_{}.csv".format(keyword, since, until), index=False, encoding='euc-kr')
+```
+
+수집된 트윗은 클라우드 서버에 바로 저장되며, 저장된 트윗은 왼쪽 메뉴의 파일 아이콘을 클릭해 다운로드할 수 있다.
+
+> ![img01](https://github.com/jaehwan-dev/study-in-mis/raw/master/imgs/img01-download%20outputfile.png)
