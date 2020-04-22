@@ -37,6 +37,8 @@
 
 예전에는 HTML과 CSS, 파라미터만 분석하면 됐다면 요즘은 페이지 내에서 발생하는 network connection까지 분석해야하는 경우가 많다.
 
+***만약 연구를 위해 웹 스크래핑을 한다면 해당 웹 사이트에서 스크래핑한 데이터를 연구 목적으로 활용할 수 있는지에 대한 법적 검토가 반드시 필요하다.***
+
 ## 1. Static Webpage Scrapping-pandas.read_html()
 
 가장 쉬운 형태의 웹 페이지 스크래핑을 해보자.
@@ -74,3 +76,42 @@ https://sports.news.naver.com/esports/index.nhn 의 HTML 코드를 볼 수 있�
 
 ## 2. Static Webpage Scrapping-HTML parsing
 
+이번에는 1위팀의 이름을 HTML parsing을 통해 직접 추출해보자.
+
+개발자 도구를 이용해 해당 페이지의 HTML 태그를 살펴보면 아래와 같은 트리 구조를 확인할 수 있다.
+
+> <table>   
+> |-<caption>   
+> |-<tbody>   
+> |--<tr> .best   
+> |---<th> .row   
+> |---<td>   
+> |----<div> .image emblem   
+> |----<div> .info   
+> |-----<span> .name   
+> |---<td>   
+
+파이썬 라이브러리인 `BeautifulSoup`을 이용하면 HTML 구조를 편리하게 parsing 할 수 있다. [[doc]](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+```python
+from bs4 import BeautifulSoup 
+from urllib.request import urlopen
+
+url = 'https://sports.news.naver.com/esports/index.nhn'
+source = BeautifulSoup(urlopen(url), 'html.parser')
+
+row = source.find('tr', class_="best")
+column = row.find_all('td')
+
+print (column[0].get_text().strip())
+```
+
+`find`와 `find_all`, 그리고 HTML element의 class name을 활용해 원하는 값에 도달할 수 있다.
+
+## 3. Dynamic Webpage Scrapping
+
+정적 웹 페이지와 달리 동적 웹 페이지는 사용자에게 진짜 필요한 순간에 데이터를 로드한다.
+
+따라서 `BeautifulSoup` 등을 이용해 불러냈을 때 기대되는 HTML 코드와 Python 코드에서 보여지는 HTML 코드가 다른 경우가 많다.
+
+개인적으로 이런 
