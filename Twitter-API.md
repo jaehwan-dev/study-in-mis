@@ -20,6 +20,8 @@ Twitter에서는 공식적으로 API를 이용해 데이터 수집 환경을 제
 
 따라서 그 이전 기간의 트위터를 수집하기 위해서는 1) 유료 서비스를 이용하거나, 2) 3rd party에서 개발된 라이브러리를 사용해야한다.
 
+---
+
 # Twitter API-키워드 검색을 통한 트윗 수집
 
 > 수집된 결과(예시)
@@ -138,6 +140,6 @@ else:
 
 수집된 트윗은 클라우드 서버에 바로 저장되며, 저장된 트윗은 왼쪽 메뉴의 파일 아이콘을 클릭해 다운로드할 수 있다.
 
-> ![file](https://i.imgur.com/23PGHwb.png)
+> ![img01](https://github.com/jaehwan-dev/study-in-mis/blob/master/imgs/img01-download%20outputfile.png)
 
-## 
+## 코드 리뷰
