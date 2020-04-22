@@ -41,6 +41,15 @@
 
 가장 쉬운 형태의 웹 페이지 스크래핑을 해보자.
 
-http://www.op.gg/statistics/champion/ 에 접속하면 Riot Games의 LOL 랭크 게임에서 각 챔피언별 승률을 확인할 수 있다.
+https://sports.news.naver.com/esports/index.nhn 에 접속하면 Riot Games의 LOL의 프로리그 순위를 확인할 수 있다.
 
-이 페이지에서 각 챔피언의 승률을 pandas dataframe으로 가져오는 코드를 작성해보자.
+이 페이지에서 각 팀의 전적 기록을 pandas dataframe으로 가져오는 코드를 작성해보자.
+
+```
+import pandas as pd
+
+url = 'https://sports.news.naver.com/esports/index.nhn'
+dfs = pd.read_html(url)
+dfs[0]
+```
+
