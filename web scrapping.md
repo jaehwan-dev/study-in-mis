@@ -114,4 +114,11 @@ print (column[0].get_text().strip())
 
 따라서 `BeautifulSoup` 등을 이용해 불러냈을 때 기대되는 HTML 코드와 Python 코드에서 보여지는 HTML 코드가 다른 경우가 많다.
 
-개인적으로 이런 
+이런 동적 웹 페이지의 스크래핑은 [[link]](https://nittaku.tistory.com/139)를 참고하자.
+
+[참고] 개발자 도구의 network 탭
+> !(img06)[https://github.com/jaehwan-dev/study-in-mis/blob/master/imgs/img06-network%20log.JPG)
+
+웹 페이지가 로드된 후 일어나는 network connection과 관련된 정보는 개발자 도구의 network 탭에서 확인할 수 있다.
+
+이를 잘 활용하면 더 쉽게 데이터를 스크래핑할 수 있는 경우가 있다.
